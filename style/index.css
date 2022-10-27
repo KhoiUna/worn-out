@@ -1,0 +1,46 @@
+@font-face {
+    font-family: Ananda;
+    src: url(/fonts/Ananda.ttf);
+  }
+
+@font-face {
+    font-family: Nature;
+    src: url(/fonts/Nature.ttf);
+}
+
+@font-face {
+  font-family: Break;
+  src: url(/fonts/Break.ttf);
+}
+
+input{
+  border: 2px solid rgba(33,30,33,255);
+  border-radius: 5px;
+  height: 28px;
+  width:30%;
+}
+
+body {
+  background: linear-gradient(0.25turn, #7a47b9, #6438ca, #3b2db8);
+  }
+
+h1{
+    text-align: center;
+    font-family: Break;
+    font-size: 100px;
+    color:rgb(126, 236, 222);
+    text-shadow: 2px 2px 1px #000000;
+}
+
+.Outfit{
+  padding: 5%;
+  text-align: center;
+  border: 5px transparent #706979;
+  border-style:ridge;
+  border-radius:15px ;
+}
+
+.s1{
+  padding: 2%;
+  text-align: center;
+}
