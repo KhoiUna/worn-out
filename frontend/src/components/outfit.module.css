@@ -3,7 +3,7 @@
   width: 100%;
   max-width: 330px;
   border-radius: 10px;
-  margin: auto;
+  margin: 1rem auto;
 }
 
 .outfit_name {
@@ -11,7 +11,12 @@
   text-decoration: underline;
 }
 
+.image_container {
+  padding: 0 1rem 1rem;
+  text-align: center;
+}
+
 .image {
-  width: 100%;
+  width: 70%;
   border-radius: 10px;
 }

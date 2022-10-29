@@ -10,7 +10,7 @@ const Outfit = ({ outfit_name, image_url }: OutfitProps) => {
     <div className={outfitStyle.container}>
       <h2 className={outfitStyle.outfit_name}>{outfit_name}</h2>
 
-      <div style={{ padding: "0 1rem 1rem" }}>
+      <div className={outfitStyle.image_container}>
         <img className={outfitStyle.image} src={image_url} />
       </div>
     </div>
