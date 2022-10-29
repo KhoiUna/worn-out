@@ -36,12 +36,27 @@ const Index = () => {
         <input className={homeStyle.search} placeholder="Enter Details" />
       </div>
 
-      <div className={homeStyle.outfit_container}>
-        {outfits.map((item) => (
-          <Link to={`/${item.id}`} key={item.id}>
-            <Outfit image_url={item.image_url} outfit_name={item.outfit_name} />
-          </Link>
-        ))}
+      <div
+        style={{
+          backgroundColor: "#f1f1f1",
+          padding: "0.5rem",
+          borderRadius: "10px",
+          margin: "auto",
+          textAlign: "center",
+        }}
+      >
+        <h2>Outfits you wore:</h2>
+
+        <div className={homeStyle.outfit_container}>
+          {outfits.map((item) => (
+            <Link to={`/${item.id}`} key={item.id}>
+              <Outfit
+                image_url={item.image_url}
+                outfit_name={item.outfit_name}
+              />
+            </Link>
+          ))}
+        </div>
       </div>
     </Layout>
   );
