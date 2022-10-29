@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: Ananda;
+  src: url(./assets/fonts/Ananda.ttf);
+}
+
+@font-face {
+  font-family: Nature;
+  src: url(./assets/fonts/Nature.ttf);
+}
+
+@font-face {
+  font-family: Break;
+  src: url(./assets/fonts/Break.ttf);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.react-calendar {
+  margin: auto;
+}
