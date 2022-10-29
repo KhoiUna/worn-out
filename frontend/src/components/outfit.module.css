@@ -1,9 +1,11 @@
 .container {
   background-color: white;
-  width: 100%;
+  width: 90%;
   max-width: 330px;
   border-radius: 10px;
-  margin: 1rem auto;
+  margin: 1rem;
+  height: 400px;
+  box-shadow: 0px -4px 28px -5px #8a2379;
 }
 
 .outfit_name {
