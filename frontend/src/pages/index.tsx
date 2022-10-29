@@ -45,7 +45,9 @@ const Index = () => {
           textAlign: "center",
         }}
       >
-        <h2>Outfits you wore:</h2>
+        <h2 style={{ padding: "0.5rem", fontSize: "1.5rem" }}>
+          Outfits you wore:
+        </h2>
 
         <div className={homeStyle.outfit_container}>
           {outfits.map((item) => (
