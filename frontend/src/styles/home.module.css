@@ -16,3 +16,8 @@
 .search:focus {
   outline: none;
 }
+
+.outfit_container {
+  display: flex;
+  flex-wrap: wrap;
+}
