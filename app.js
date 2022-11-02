@@ -19,17 +19,23 @@ app.get("/", async (req, res) => {
 });
 
 //view selected outfit
-app.post("/thisOutfit", (req, res) => {
-  console.log("made it to function")
+app.post("/thisFit", (req, res) => {
   res.render("../views/outfit.ejs")
 })
 
 //create outfit button
-app.post("/create", (req, res) => {
-  console.log("made it to function")
+app.post("/newFit", (req, res) => {
   res.render("../views/newoutfit.ejs")
 })
 
+app.post("/create", async (req, res) => {
+  //UsersUtil References create function in ./utils/UserUtil
+    const response = await UsersUtil.create(req.body);
+  
+    if (!response) console.error(response);
+  
+    res.redirect("/");
+  });
   
 //Listening
 app.listen(PORT, () =>
