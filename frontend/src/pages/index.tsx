@@ -7,7 +7,9 @@ import homeStyle from "../styles/home.module.css";
 type Outfit = {
   id: string;
   image_url: string;
-  outfit_name: string;
+  label: string;
+  details: string[];
+  last_worn: Date;
 };
 
 const outfits: Outfit[] = [
@@ -15,13 +17,17 @@ const outfits: Outfit[] = [
     id: "fsafds",
     image_url:
       "https://www.boredpanda.com/blog/wp-content/uploads/2022/03/horrible-dresses-25-622749b4cfad9__700.jpg",
-    outfit_name: "sun god",
+    label: "sun god",
+    details: ["sun", "black"],
+    last_worn: new Date("2022-10-31"),
   },
   {
     id: "asdfdasf",
     image_url:
       "https://i.pinimg.com/originals/6a/c3/fe/6ac3fe0fcc2108847c9e107a5b2305cd.jpg",
-    outfit_name: "What?",
+    label: "What?",
+    details: ["pink", "umbrella"],
+    last_worn: new Date(),
   },
 ];
 
@@ -54,7 +60,8 @@ const Index = () => {
             <Link to={`/${item.id}`} key={item.id}>
               <Outfit
                 image_url={item.image_url}
-                outfit_name={item.outfit_name}
+                outfit_name={item.label}
+                last_worn={item.last_worn}
               />
             </Link>
           ))}
