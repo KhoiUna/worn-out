@@ -1,43 +1,48 @@
-require("dotenv").config();
+//require("dotenv").config();
 const express = require("express");
-const bodyParser = require("body-parser");
-//Reference used for class UserUtil where all CRUD function are stored
-const UsersUtil = require("./utils/UserUtil");
+const cors = require("cors");
 const app = express();
 
-const { PORT = 3000 } = process.env;
+//const bodyParser = require("body-parser");
+//Reference used for class UserUtil where all CRUD function are stored
+const outfitUtil = require("./utils/outfitUtil");
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
+
+
+
+//app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("static"));
-app.set("view engine", "ejs");
+//app.set("view engine", "ejs");
 
+//initial server
+app.get("/api/outfit", async (req, res) => {
+     // No idea bro
+     const outfitsJson = [  
 
-//initial reply
-app.get("/", async (req, res) => {
-  res.render("../views/index.ejs");
-});
+      {
+        "id": req.body.id,
+        "image_url": req.body.image_url,
+        "label": req.body.label,
+        "details": req.body.details,
+        "last_worn": req.params.last_worn,
 
-//view selected outfit
-app.post("/thisFit", (req, res) => {
-  res.render("../views/outfit.ejs")
-})
-
-//create outfit button
-app.post("/newFit", (req, res) => {
-  res.render("../views/newoutfit.ejs")
-})
-
-app.post("/create", async (req, res) => {
-  //UsersUtil References create function in ./utils/UserUtil
-    const response = await UsersUtil.create(req.body);
-  
-    if (!response) console.error(response);
-  
-    res.redirect("/");
+      }
+    ];
+        
+    res.json({
+      success: outfitsJson,
+      error: false,
+    });
   });
-  
-//Listening
-app.listen(PORT, () =>
-  console.log(`Server is running: http://localhost:${PORT}/`)
+//will serve Outfit page
+/*app.post("/thisOutfit", (req, res) => {
+  console.log("made it to function")
+  res.render("../view/outfits.ejs")
+}) */
+
+// express listening
+app.listen(3000, () =>
+  console.log(`Server is running: http://localhost:3000/`)
 );
