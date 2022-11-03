@@ -7,6 +7,7 @@ const OutfitUtil = require("./utils/OutfitUtil.cjs");
 
 const PORT = process.env.PORT || 3000;
 
+// Serve the built React frontend
 app.use(express.static(path.join(__dirname, "..", "frontend/dist")));
 
 app.get("/api/outfit", async (req, res) => {
