@@ -3,7 +3,7 @@ import outfitStyle from "./outfit.module.css";
 type OutfitProps = {
   outfit_name: string;
   image_url: string;
-  last_worn: string;
+  last_worn: Date;
 };
 
 const Outfit = ({ outfit_name, image_url, last_worn }: OutfitProps) => {

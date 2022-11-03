@@ -4,9 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "npm run build && nodemon backend/app.cjs",
     "build": "cd frontend && tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "node backend/app.cjs"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.14.1",
