@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Calendar } from "react-calendar";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
@@ -23,27 +23,17 @@ const Index = () => {
     error,
     data: fetchedOutfits,
     isFetching,
-  } = useQuery<any, any, Outfit[], any>(["outfits"], () =>
+  } = useQuery<any, any, Outfit[], any>([date], () =>
     axios
-      .get("http://localhost:3000/api/outfit") // we will change this URL to Heroku one when backend is deployed
+      .get(
+        `/api/outfit?date=${date.getFullYear()}-${date.getMonth() + 1}-${
+          date.getDate() < 10 && "0"
+        }${date.getDate()}`
+      )
       .then((res) => res.data.success)
   );
 
-  const [outfits, setOutfits] = useState<Outfit[]>([]);
-  useEffect(() => {
-    if (fetchedOutfits) {
-      // Filter outfits worn on the set date
-      setOutfits(
-        fetchedOutfits.filter(
-          (item: Outfit) =>
-            new Date(item.last_worn).toLocaleDateString() ===
-            date.toLocaleDateString()
-        )
-      );
-    }
-  }, [date, fetchedOutfits]);
-
-  if (isLoading)
+  if (isLoading || !fetchedOutfits)
     return (
       <Layout>
         <h1 style={{ color: "white", textAlign: "center", margin: "1rem" }}>
@@ -75,9 +65,9 @@ const Index = () => {
           Outfits you wore:
         </h2>
 
-        {outfits.length > 0 && (
+        {fetchedOutfits.length > 0 && (
           <div className={homeStyle.outfit_container}>
-            {outfits.map((item) => (
+            {fetchedOutfits.map((item) => (
               <Link to={`/${item.id}`} key={item.id}>
                 <Outfit
                   image_url={item.image_url}
@@ -88,7 +78,7 @@ const Index = () => {
             ))}
           </div>
         )}
-        {outfits.length === 0 && (
+        {fetchedOutfits.length === 0 && (
           <p style={{ fontSize: "1.5rem", textAlign: "center" }}>
             No outfits wore on this day
           </p>

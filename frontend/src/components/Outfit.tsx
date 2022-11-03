@@ -11,7 +11,7 @@ const Outfit = ({ outfit_name, image_url, last_worn }: OutfitProps) => {
     <div className={outfitStyle.container}>
       <h2 className={outfitStyle.outfit_name}>{outfit_name}</h2>
       <p style={{ padding: "0.3rem 0" }}>
-        Last worn: {last_worn.toLocaleString()}
+        Last worn: {last_worn.toLocaleDateString()}
       </p>
 
       <div className={outfitStyle.image_container}>
