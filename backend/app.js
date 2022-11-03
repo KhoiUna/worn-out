@@ -5,6 +5,8 @@ const app = express();
 
 const OutfitUtil = require("./utils/OutfitUtil");
 
+const PORT = process.env.PORT || 3000;
+
 app.use(cors());
 
 //initial server
@@ -20,6 +22,6 @@ app.get("/api/outfit", async (req, res) => {
 });
 
 // express listening
-app.listen(3000, () =>
+app.listen(PORT, () =>
   console.log(`Server is running: http://localhost:3000/`)
 );
