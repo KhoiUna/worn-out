@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { Calendar } from "react-calendar";
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import Outfit from "../components/Outfit";
 import Layout from "../containers/Layout";
 import homeStyle from "../styles/home.module.css";
+import axios from "axios";
 
 type Outfit = {
   id: string;
@@ -13,53 +15,42 @@ type Outfit = {
   last_worn: Date;
 };
 
-const outfitsJson: Outfit[] = [
-  {
-    id: "qwer",
-    image_url:
-      "https://theimpression.com/wp-content/uploads/2019/03/celine-rf19-1201.jpg",
-    label: "Black",
-    details: ["hat", "black"],
-    last_worn: new Date("2022-10-31T12:00"),
-  },
-  {
-    id: "fsafds",
-    image_url:
-      "https://www.boredpanda.com/blog/wp-content/uploads/2022/03/horrible-dresses-25-622749b4cfad9__700.jpg",
-    label: "sun god",
-    details: ["sun", "black"],
-    last_worn: new Date("2022-11-01T12:00"),
-  },
-  {
-    id: "al",
-    image_url:
-      "https://assets.vogue.com/photos/5d77fd188d44ee0009799518/master/pass/00001-Cong-Tri-Ready-To-Wear-Spring-2020.jpg",
-    label: "White dress",
-    details: ["pink", "umbrella"],
-    last_worn: new Date("2022-11-01T12:30"),
-  },
-  {
-    id: "asdfdasf",
-    image_url:
-      "https://i.pinimg.com/originals/6a/c3/fe/6ac3fe0fcc2108847c9e107a5b2305cd.jpg",
-    label: "Pink dress",
-    details: ["pink", "umbrella"],
-    last_worn: new Date(),
-  },
-];
-
 const Index = () => {
   const [date, handleCalendarChange] = useState(new Date());
 
-  const [outfits, setOutfits] = useState(outfitsJson);
+  const {
+    isLoading,
+    error,
+    data: fetchedOutfits,
+    isFetching,
+  } = useQuery<any, any, Outfit[], any>(["outfits"], () =>
+    axios
+      .get("http://localhost:3000/api/outfit") // we will change this URL to Heroku one when backend is deployed
+      .then((res) => res.data.success)
+  );
+
+  const [outfits, setOutfits] = useState<Outfit[]>([]);
   useEffect(() => {
-    setOutfits(
-      outfitsJson.filter(
-        (item) =>
-          item.last_worn.toLocaleDateString() === date.toLocaleDateString()
-      )
+    if (fetchedOutfits) {
+      // Filter outfits worn on the set date
+      setOutfits(
+        fetchedOutfits.filter(
+          (item: Outfit) =>
+            new Date(item.last_worn).toLocaleDateString() ===
+            date.toLocaleDateString()
+        )
+      );
+    }
+  }, [date, fetchedOutfits]);
+
+  if (isLoading)
+    return (
+      <Layout>
+        <h1 style={{ color: "white", textAlign: "center", margin: "1rem" }}>
+          Loading...
+        </h1>
+      </Layout>
     );
-  }, [date]);
 
   return (
     <Layout>
