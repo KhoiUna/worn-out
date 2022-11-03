@@ -1,16 +1,19 @@
 {
-  "name": "frontend",
+  "name": "worn-out",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "cd frontend && tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.14.1",
     "axios": "^1.1.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongodb": "^4.11.0",
     "react": "^18.2.0",
     "react-calendar": "^3.9.0",
     "react-dom": "^18.2.0",
