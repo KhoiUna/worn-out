@@ -36,20 +36,50 @@ const Index = () => {
   if (isLoading || !fetchedOutfits)
     return (
       <Layout>
-        <h1 style={{ color: "white", textAlign: "center", margin: "1rem" }}>
-          Loading...
-        </h1>
+        <div className={homeStyle.container}>
+          <Link to={"/add"}>
+            <button className={homeStyle.add_outfit_button}>
+              Add an outfit
+            </button>
+          </Link>
+        </div>
+
+        <div className={homeStyle.container}>
+          <select name="" id="">
+            <option value="">date</option>
+          </select>
+        </div>
+
+        <div
+          style={{
+            backgroundColor: "#f1f1f1",
+            padding: "0.5rem",
+            borderRadius: "10px",
+            margin: "auto",
+            textAlign: "center",
+          }}
+        >
+          <h2 style={{ padding: "0.5rem", fontSize: "1.5rem" }}>
+            Outfits you wore:
+          </h2>
+
+          <h2>Loading...</h2>
+        </div>
       </Layout>
     );
 
   return (
     <Layout>
       <div className={homeStyle.container}>
-        <Calendar onChange={handleCalendarChange} value={date} />
+        <Link to={"/add"}>
+          <button className={homeStyle.add_outfit_button}>Add an outfit</button>
+        </Link>
       </div>
 
       <div className={homeStyle.container}>
-        <input className={homeStyle.search} placeholder="Enter Details" />
+        <select name="" id="">
+          <option value="">date</option>
+        </select>
       </div>
 
       <div

@@ -1,0 +1,14 @@
+.inputs {
+  border: 2px solid rgba(33, 30, 33, 255);
+  border-radius: 5px;
+  padding: 5px;
+  font-size: large;
+  width: 100%;
+}
+
+.submit_button {
+  padding: 5px;
+  background-color: white;
+  font-size: large;
+  cursor: pointer;
+}
