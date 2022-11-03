@@ -19,6 +19,13 @@ app.post("/thisOutfit", (req, res) => {
   res.render("../view/outfits.ejs")
 })
 
+//will serve newoutfit page
+app.post("/newOutfit", (req, res) => {
+  console.log("made it to function")
+  res.render("../view/newoutfit.ejs")
+})
+
+
 // express listening
 app.listen(3000, () =>
   console.log(`Server is running: http://localhost:3000/`)
