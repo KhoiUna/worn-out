@@ -7,7 +7,10 @@ const OutfitUtil = require("./utils/OutfitUtil");
 
 const PORT = process.env.PORT || 3000;
 
+
+// init app & middleware
 app.use(cors());
+app.use(express.json());
 
 //initial server
 app.get("/api/outfit", async (req, res) => {
@@ -20,6 +23,22 @@ app.get("/api/outfit", async (req, res) => {
     error: false,
   });
 });
+
+app.post("/api/outfit", async (req, res) => {
+
+ const response = await OutfitUtil.saveOutfit(req.body);    
+
+
+  if (!response) console.error(response);
+
+  res.json({
+    success: response,
+    error: false,
+  });
+});
+
+
+
 
 // express listening
 app.listen(PORT, () =>

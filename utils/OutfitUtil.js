@@ -19,24 +19,24 @@ module.exports = class OutfitUtil {
     }
   }
 
-  // static async create(outfitData) {
-  //   try {
-  //     //inserts outfit Data
-  //     outfitData.image_url = outfitData.image_url.trim();
-  //     outfitData.label = outfitData.label.trim();
-  //     outfitData.details = outfitData.details.trim();
-  //     outfitData.last_worn = outfitData.last_worn.trim();
+  static async saveOutfit(outfitData) {
+    try {
+      //inserts outfit Data
+      outfitData.image_url = outfitData.image_url.trim();
+      outfitData.label = outfitData.label.trim();
+      outfitData.details = outfitData.details.trim();
+      outfitData.last_worn = outfitData.last_worn.trim();
 
-  //     const collection = client.db("wornout").collection("outfits");
+      const collection = client.db("wornout").collection("outfits");
 
-  //     const response = await collection.insertOne(outfitData);
+      const response = await collection.insertOne(outfitData);
 
-  //     if (!response) throw new Error("Error saving outfit");
+      if (!response) throw new Error("Error saving outfit");
 
-  //     return true;
-  //   } catch (error) {
-  //     console.error(error);
-  //     return false;
-  //   }
-  // }
+      return true;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  }
 };
