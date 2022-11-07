@@ -42,7 +42,7 @@ module.exports = class OutfitUtil {
     }
   }
 
-  static async deleteUser(outfitId) {
+  static async deleteOutfit(outfitId) {
     try {
       // Connect to a collection using the client connection object created in ../db/client.js
       const collection = client.db("wornout").collection("outfits");
@@ -77,7 +77,7 @@ module.exports = class OutfitUtil {
           image_url: outfitData.image_url,
           label: outfitData.label,
           details:  outfitData.details, 
-          last_worn: outfitData.last_worn
+          last_worn: outfitData.last_worn,
         },
       };
 
