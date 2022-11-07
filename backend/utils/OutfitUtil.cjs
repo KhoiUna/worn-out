@@ -2,6 +2,20 @@
 const client = require("../db/client.cjs");
 
 module.exports = class OutfitUtil {
+  static async getUniqueDates() {
+    try {
+      const collection = client.db("wornout").collection("outfits");
+
+      const dates = await collection.distinct("last_worn");
+      if (!dates) return false;
+
+      return dates;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  }
+
   static async get(date) {
     try {
       const collection = client.db("wornout").collection("outfits");

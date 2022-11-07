@@ -12,6 +12,15 @@ app.use(express.static(path.join(__dirname, "..", "frontend/dist")));
 // Initialize server & middleware
 app.use(express.json());
 
+app.get("/api/uniqueDates", async (req, res) => {
+  const dates = await OutfitUtil.getUniqueDates();
+
+  res.json({
+    success: dates,
+    error: false,
+  });
+});
+
 app.get("/api/outfit", async (req, res) => {
   const date = req.query.date;
 
