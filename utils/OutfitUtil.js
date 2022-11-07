@@ -18,6 +18,23 @@ module.exports = class OutfitUtil {
       return false;
     }
   }
+  
+  static async getOne(outfitId) {
+    try {
+      const collection = client.db("wornout").collection("outfits");
+
+      const filter = { _id: outfitId };
+
+      const outfit = collection.find(filter).toArray();
+      if (!outfit) return false;
+
+      return outfit;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  }
+
 
   static async saveOutfit(outfitData) {
     try {
