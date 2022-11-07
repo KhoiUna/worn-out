@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Calendar } from "react-calendar";
+import { SyntheticEvent, useState } from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import Outfit from "../components/Outfit";
@@ -16,24 +15,32 @@ type Outfit = {
 };
 
 const Index = () => {
-  const [date, handleCalendarChange] = useState(new Date());
+  const [date, setDate] = useState("");
 
-  const {
-    isLoading,
-    error,
-    data: fetchedOutfits,
-    isFetching,
-  } = useQuery<any, any, Outfit[], any>([date], () =>
-    axios
-      .get(
-        `/api/outfit?date=${date.getFullYear()}-${date.getMonth() + 1}-${
-          date.getDate() < 10 && "0"
-        }${date.getDate()}`
-      )
-      .then((res) => res.data.success)
+  const { isLoading: uniqueDateIsLoading, data: uniqueDates } = useQuery<
+    any,
+    any,
+    string[],
+    any
+  >({
+    queryKey: ["uniqueDates"],
+    queryFn: () =>
+      axios.get("/api/uniqueDates").then((res) => res.data.success),
+  });
+
+  const { isLoading, data: fetchedOutfits } = useQuery<any, any, Outfit[], any>(
+    {
+      queryKey: ["fetchedOutfits", date],
+      queryFn: () =>
+        axios.get(`/api/outfit?date=${date}`).then((res) => res.data.success),
+    }
   );
 
-  if (isLoading || !fetchedOutfits)
+  const handleDateChange = (event: SyntheticEvent) => {
+    setDate((event.target as HTMLSelectElement).value);
+  };
+
+  if (isLoading || !fetchedOutfits || uniqueDateIsLoading || !uniqueDates)
     return (
       <Layout>
         <div className={homeStyle.container}>
@@ -45,8 +52,10 @@ const Index = () => {
         </div>
 
         <div className={homeStyle.container}>
-          <select name="" id="">
-            <option value="">date</option>
+          <select defaultValue={""} disabled>
+            <option value="" disabled>
+              Loading...
+            </option>
           </select>
         </div>
 
@@ -77,8 +86,15 @@ const Index = () => {
       </div>
 
       <div className={homeStyle.container}>
-        <select name="" id="">
-          <option value="">date</option>
+        <select value={date} onChange={handleDateChange}>
+          <option value="" disabled>
+            Please select a date
+          </option>
+          {uniqueDates.map((date) => (
+            <option key={date} value={date}>
+              {new Date(date).toLocaleDateString()}
+            </option>
+          ))}
         </select>
       </div>
 
