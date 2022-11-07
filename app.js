@@ -25,6 +25,40 @@ app.get("/api/outfit", async (req, res) => {
   });
 });
 
+app.get("/api/outfit/thisFit", async (req, res) => {
+
+  const outfit = await OutfitUtil.getOne(req.params.OutfitId);
+
+  res.json({
+    success: outfit,
+    error: false,
+  });
+});
+
+app.post("/api/outfit/save", async (req, res) => {
+
+ const response = await OutfitUtil.saveOutfit(req.body);    
+
+  console.log(response);
+  if (!response) console.error(response);
+
+  response.json({
+    success: true,
+    error: false
+    });
+  });
+
+app.post("/api/outfit/delete", async (req, res) => {
+    const response = await UsersUtil.deleteUser(req.params.OutfitId);
+  
+    if (!response) console.error(response);
+  
+   response.json({
+    success: true,
+    error: false
+    });
+  });
+
 app.post("/", async (req, res) => {
 
  const response = await OutfitUtil.saveOutfit(req.body);    
@@ -38,7 +72,18 @@ console.log(response);
     });
   });
 
+  app.post("/api/outfit/update", async (req, res) => {
+    const response = await OutfitUtil.updateOne(req.params.OutfitId, req.body);
 
+    console.log(response);
+  if (!response) console.error(response);
+
+  response.json({
+    success: true,
+    error: false
+    });
+
+  });
 
 // express listening
 app.listen(PORT, () =>
