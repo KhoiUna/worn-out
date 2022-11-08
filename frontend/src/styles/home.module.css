@@ -8,6 +8,7 @@
   padding: 5px;
   border-radius: 10px;
   margin: 0.5rem 0;
+  border: 2px solid black;
 }
 
 .add_outfit_button {
@@ -17,6 +18,7 @@
   cursor: pointer;
   color: black;
   border-radius: 10px;
+  border: 2px solid black;
 }
 
 .outfit_container {
