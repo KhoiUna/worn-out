@@ -1,0 +1,18 @@
+.container {
+  background-color: white;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  font-size: large;
+}
+
+.back_button {
+  background-color: white;
+  padding: 5px;
+  color: black;
+  border-radius: 5px;
+  margin: 0.5rem 1rem;
+  font-size: large;
+  cursor: pointer;
+}
