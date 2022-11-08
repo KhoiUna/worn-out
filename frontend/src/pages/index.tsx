@@ -52,7 +52,7 @@ const Index = () => {
         </div>
 
         <div className={homeStyle.container}>
-          <select defaultValue={""} disabled>
+          <select className={homeStyle.dropdown} defaultValue={""} disabled>
             <option value="" disabled>
               Loading...
             </option>
@@ -86,7 +86,11 @@ const Index = () => {
       </div>
 
       <div className={homeStyle.container}>
-        <select value={date} onChange={handleDateChange}>
+        <select
+          className={homeStyle.dropdown}
+          value={date}
+          onChange={handleDateChange}
+        >
           <option value="" disabled>
             Please select a date
           </option>
