@@ -1,7 +1,20 @@
+import { useState } from "react";
 import Layout from "../containers/Layout";
 import addPageStyle from "../styles/add.module.css";
 
+const formatDate = (date: Date) => {
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const dateOfMonth = date.getDate();
+
+  return `${year}-${month < 10 ? "0" : ""}${month}-${
+    dateOfMonth < 10 ? "0" : ""
+  }${dateOfMonth}`;
+};
+
 const Add = () => {
+  const [date, setDate] = useState(new Date());
+
   return (
     <Layout>
       <form style={{ margin: "1rem", textAlign: "center" }}>
@@ -47,6 +60,7 @@ const Add = () => {
             name="last_worn"
             className={addPageStyle.inputs}
             placeholder="Last worn"
+            value={formatDate(date)}
           />
         </div>
 
