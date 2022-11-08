@@ -3,11 +3,20 @@
   margin: 1rem;
 }
 
+.dropdown {
+  font-size: large;
+  padding: 5px;
+  border-radius: 10px;
+  margin: 0.5rem 0;
+}
+
 .add_outfit_button {
   padding: 5px;
   background-color: white;
   font-size: large;
   cursor: pointer;
+  color: black;
+  border-radius: 10px;
 }
 
 .outfit_container {
