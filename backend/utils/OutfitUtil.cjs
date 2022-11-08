@@ -1,4 +1,5 @@
 //Reference to MongoDB connection at ../db/client
+const { ObjectId } = require("mongodb");
 const client = require("../db/client.cjs");
 
 module.exports = class OutfitUtil {
@@ -36,9 +37,9 @@ module.exports = class OutfitUtil {
     try {
       const collection = client.db("wornout").collection("outfits");
 
-      const filter = { _id: outfitId };
+      const filter = { _id: ObjectId(outfitId) };
 
-      const outfit = collection.find(filter).toArray();
+      const outfit = await collection.findOne(filter);
       if (!outfit) return false;
 
       return outfit;
