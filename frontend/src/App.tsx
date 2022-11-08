@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     element: <Add />,
   },
   {
-    path: "/view",
+    path: "/view/:outfitID",
     element: <View />,
   },
 ]);

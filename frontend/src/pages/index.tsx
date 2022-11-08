@@ -7,7 +7,7 @@ import homeStyle from "../styles/home.module.css";
 import axios from "axios";
 
 type Outfit = {
-  id: string;
+  _id: string;
   image_url: string;
   label: string;
   details: string[];
@@ -114,7 +114,7 @@ const Index = () => {
         {fetchedOutfits.length > 0 && (
           <div className={homeStyle.outfit_container}>
             {fetchedOutfits.map((item) => (
-              <Link to={`/${item.id}`} key={item.id}>
+              <Link to={`/view/${item._id}`} key={item._id}>
                 <Outfit
                   image_url={item.image_url}
                   outfit_name={item.label}
