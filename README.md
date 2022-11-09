@@ -26,7 +26,7 @@ Your colleagues stare at you and whisper about how that same suit seems to be th
 ## Life after the Worn-Out App
 You show up to functions in new attire. Friends and colleagues are always seeing you in new looks. They ask how you always never 
 seem to wear the same thing twice. Then you refer them to Worn-Out APP. You explain how you can keep track of all the suits you have worn 
-to all the functions you're required at attend with ease now.
+to all the functions you're required to attend with ease now.
 
 
 
