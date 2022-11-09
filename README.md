@@ -18,12 +18,12 @@ This application will let you pull up that photo you posted to the company site 
 You list a date that you last wore it and give it a memorable label. 
 
 
-##Life before the Worn-Out APP
+## Life before the Worn-Out APP
 You shifted clothes aimlessly around your closet not sure of when you wore a suit or outfit last.
 This has you questioning your memory. Why can't you just remember? You just have to guess and hope for the best. 
 Your colleagues stare at you and whisper about how that same suit seems to be the only one you own. 
 
-##Life after the Worn-Out APP
+## Life after the Worn-Out APP
 You show up to functions in new attire. Friends and colleagues are always seeing you in new looks. They ask how you always never 
 seem to wear the same thing twice. Then you refer them to Worn-Out APP. You explain how you can keep track of all the suits you have worn 
 to all the functions you're required at attend with ease now.
