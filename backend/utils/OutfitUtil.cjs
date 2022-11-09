@@ -7,7 +7,9 @@ module.exports = class OutfitUtil {
     try {
       const collection = client.db("wornout").collection("outfits");
 
-      const dates = await collection.distinct("last_worn");
+      const dates = (await collection.distinct("last_worn")).sort(
+        (a, b) => new Date(b) - new Date(a)
+      );
       if (!dates) return false;
 
       return dates;
@@ -54,8 +56,8 @@ module.exports = class OutfitUtil {
     try {
       outfitData.image_url = outfitData.image_url.trim();
       outfitData.label = outfitData.label.trim();
-      outfitData.details = outfitData.details.trim();
-      outfitData.last_worn = outfitData.last_worn.trim();
+      outfitData.details = outfitData.details.split(",");
+      outfitData.last_worn = new Date(outfitData.last_worn.trim());
 
       const collection = client.db("wornout").collection("outfits");
 
