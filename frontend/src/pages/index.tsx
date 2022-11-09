@@ -92,7 +92,9 @@ const Index = () => {
           onChange={handleDateChange}
         >
           <option value="" disabled>
-            Please select a date
+            {uniqueDates.length > 0
+              ? "Please select a date"
+              : "No outfits added"}
           </option>
           {uniqueDates.map((date) => (
             <option key={date} value={date}>
