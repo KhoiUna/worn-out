@@ -63,7 +63,7 @@ module.exports = class OutfitUtil {
         outfitData.last_worn.getFullYear(),
         outfitData.last_worn.getMonth(),
         outfitData.last_worn.getDate(),
-        1,
+        6,
         0,
         0
       );
