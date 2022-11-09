@@ -19,7 +19,7 @@ You list a date that you last wore it and give it a memorable label.
 
 
 ## Life before the Worn-Out App
-You shifted clothes aimlessly around your closet not sure of when you wore a suit or outfit last.
+You shift clothes aimlessly around your closet not sure of when you wore a suit or outfit last.
 This has you questioning your memory. Why can't you just remember? You just have to guess and hope for the best. 
 Your colleagues stare at you and whisper about how that same suit seems to be the only one you own. 
 
