@@ -22,3 +22,8 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+.react-datepicker__input-container input {
+  padding: 5px;
+  font-size: large;
+}

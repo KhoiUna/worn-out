@@ -1,38 +1,128 @@
-import { useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
+import { SyntheticEvent, useState } from "react";
 import Layout from "../containers/Layout";
 import addPageStyle from "../styles/add.module.css";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
-const formatDate = (date: Date) => {
-  const year = date.getFullYear();
-  const month = date.getMonth() + 1;
-  const dateOfMonth = date.getDate();
+type Prompt = {
+  success: boolean | string;
+  error: boolean | string;
+};
 
-  return `${year}-${month < 10 ? "0" : ""}${month}-${
-    dateOfMonth < 10 ? "0" : ""
-  }${dateOfMonth}`;
+type OutfitInput = {
+  image_url: string;
+  label: string;
+  last_worn: Date;
+  details: string;
+};
+
+const outfitInputInitialState: OutfitInput = {
+  image_url: "",
+  label: "",
+  last_worn: new Date(),
+  details: "",
+};
+
+const saveOutfit = async (outfitInput: OutfitInput) => {
+  const { data } = await axios.post("/api/outfit/save", outfitInput);
+  return data;
 };
 
 const Add = () => {
-  const [date, setDate] = useState(new Date());
+  const [prompt, setPrompt] = useState<Prompt>({
+    success: false,
+    error: false,
+  });
+
+  const { mutate, isLoading } = useMutation(saveOutfit, {
+    onSuccess: (data) => {
+      if (data.success) {
+        setOutfitInput(outfitInputInitialState);
+        setPrompt({
+          success: "Successfully saved!",
+          error: false,
+        });
+      }
+
+      if (data.error) {
+        setPrompt({
+          success: false,
+          error: "Error saving outfit",
+        });
+      }
+    },
+    onError: () => {
+      setPrompt({
+        success: false,
+        error: "Error saving outfit",
+      });
+    },
+  });
+
+  const [outfitInput, setOutfitInput] = useState(outfitInputInitialState);
+
+  const handleChange = (event: SyntheticEvent) => {
+    const target = event.target as HTMLInputElement;
+    setOutfitInput((prev) => ({ ...prev, [target.name]: target.value }));
+  };
+
+  const handleSubmit = async (event: SyntheticEvent) => {
+    event.preventDefault();
+    mutate(outfitInput);
+  };
 
   return (
     <Layout>
-      <form style={{ margin: "1rem", textAlign: "center" }}>
-        <div style={{ margin: "0.5rem" }}>
-          <input
-            required
-            name="image_url"
-            className={addPageStyle.inputs}
-            placeholder="Outfit image URL"
-          />
-        </div>
-
+      <form
+        style={{ margin: "1rem", textAlign: "center" }}
+        onChange={handleChange}
+        onSubmit={handleSubmit}
+      >
         <div style={{ margin: "0.5rem" }}>
           <input
             required
             name="label"
             className={addPageStyle.inputs}
             placeholder="Label"
+            value={outfitInput.label}
+          />
+        </div>
+
+        <div style={{ margin: "0.5rem" }}>
+          <input
+            required
+            name="image_url"
+            className={addPageStyle.inputs}
+            placeholder="Outfit image URL"
+            value={outfitInput.image_url}
+          />
+        </div>
+
+        {outfitInput.image_url && (
+          <div
+            style={{
+              margin: "0.5rem",
+              backgroundColor: "white",
+              padding: "0.5rem",
+            }}
+          >
+            <img
+              style={{ width: "50%", margin: "1rem 0", borderRadius: "10px" }}
+              src={outfitInput.image_url}
+              alt={outfitInput.label}
+            />
+          </div>
+        )}
+
+        <div style={{ margin: "0.5rem" }}>
+          <input
+            required
+            name="details"
+            className={addPageStyle.inputs}
+            placeholder="Details (separated by commas)"
+            value={outfitInput.details}
           />
         </div>
 
@@ -53,20 +143,39 @@ const Add = () => {
               Last worn:
             </p>
           </label>
-          <input
-            required
-            id="last_worn"
-            type="date"
-            name="last_worn"
-            className={addPageStyle.inputs}
-            placeholder="Last worn"
-            value={formatDate(date)}
+
+          <DatePicker
+            selected={outfitInput.last_worn}
+            onChange={(date: Date) =>
+              setOutfitInput({ ...outfitInput, last_worn: date })
+            }
           />
         </div>
 
         <button type="submit" className={addPageStyle.submit_button}>
-          Submit
+          {isLoading ? "Submitting..." : "Submit"}
         </button>
+
+        {(prompt.success || prompt.error) && (
+          <div style={{ margin: "0.5rem" }}>
+            <div
+              style={{
+                backgroundColor: "white",
+                padding: "0.5rem",
+                borderRadius: "10px",
+              }}
+            >
+              <p
+                style={{
+                  color: prompt.success ? "green" : "red",
+                  fontSize: "large",
+                }}
+              >
+                <b>{prompt.success || prompt.error}</b>
+              </p>
+            </div>
+          </div>
+        )}
       </form>
     </Layout>
   );
