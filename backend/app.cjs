@@ -46,7 +46,7 @@ app.post("/api/outfit/save", async (req, res) => {
 
   if (!response) console.error(response);
 
-  response.json({
+  res.json({
     success: true,
     error: false,
   });
@@ -57,7 +57,7 @@ app.post("/api/outfit/delete/:outfitID", async (req, res) => {
 
   if (!response) console.error(response);
 
-  response.json({
+  res.json({
     success: true,
     error: false,
   });
@@ -68,11 +68,14 @@ app.post("/api/outfit/update/:outfitID", async (req, res) => {
 
   if (!response) console.error(response);
 
-  response.json({
+  res.json({
     success: true,
     error: false,
   });
 });
+
+//
+app.use("*", express.static(path.join(__dirname, "..", "frontend/dist")));
 
 // Express listening
 app.listen(PORT, () =>
