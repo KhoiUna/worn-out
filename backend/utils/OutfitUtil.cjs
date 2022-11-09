@@ -62,7 +62,10 @@ module.exports = class OutfitUtil {
       outfitData.last_worn = new Date(
         lastWornDate.getFullYear(),
         lastWornDate.getMonth(),
-        lastWornDate.getDate()
+        lastWornDate.getDate(),
+        0,
+        0,
+        0
       );
 
       const collection = client.db("wornout").collection("outfits");
