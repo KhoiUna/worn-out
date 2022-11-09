@@ -58,11 +58,11 @@ module.exports = class OutfitUtil {
       outfitData.label = outfitData.label.trim();
       outfitData.details = outfitData.details.split(",");
 
-      const lastWornDate = new Date(outfitData.last_worn.trim());
+      outfitData.last_worn = new Date(outfitData.last_worn.trim());
       outfitData.last_worn = new Date(
-        lastWornDate.getFullYear(),
-        lastWornDate.getMonth(),
-        lastWornDate.getDate(),
+        outfitData.last_worn.getFullYear(),
+        outfitData.last_worn.getMonth(),
+        outfitData.last_worn.getDate(),
         0,
         0,
         0
