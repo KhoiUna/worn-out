@@ -57,7 +57,13 @@ module.exports = class OutfitUtil {
       outfitData.image_url = outfitData.image_url.trim();
       outfitData.label = outfitData.label.trim();
       outfitData.details = outfitData.details.split(",");
-      outfitData.last_worn = new Date(outfitData.last_worn.trim());
+
+      const lastWornDate = new Date(outfitData.last_worn.trim());
+      outfitData.last_worn = new Date(
+        lastWornDate.getFullYear(),
+        lastWornDate.getMonth(),
+        lastWornDate.getDate()
+      );
 
       const collection = client.db("wornout").collection("outfits");
 
