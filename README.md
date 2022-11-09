@@ -1,4 +1,4 @@
-# worn-out
+# Home of the Worn-Out App!
 
 This is a group project meant to improve our skills as DEVS 😎
 
