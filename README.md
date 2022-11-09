@@ -10,7 +10,7 @@ Goals, Issues, and information on our process can be found in our GIST as well a
 ## View Our [Wiki](https://github.com/FlameRender/worn-out/wiki)
 
 ## Description use case
-The time has come to go to another business meeting where you have to give a presentation. You look in the closest and wonder what you wore
+The time has come to go to another business meeting where you have to give a presentation. You look in the closet and wonder what you wore
 to the last meeting. You really need a better way to keep track of when you wore a suit last. You look for applications to solve this dilemma.
 This is when you find the Worn-Out App. 
 
