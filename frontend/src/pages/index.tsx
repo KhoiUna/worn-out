@@ -104,36 +104,40 @@ const Index = () => {
         </select>
       </div>
 
-      <div
-        style={{
-          backgroundColor: "#f1f1f1",
-          padding: "0.5rem",
-          borderRadius: "10px",
-          margin: "auto",
-          textAlign: "center",
-        }}
-      >
-        <h2 style={{ padding: "0.5rem", fontSize: "1.5rem" }}>
-          Outfits you wore:
-        </h2>
+      <div>
+        {date && (
+          <div
+            style={{
+              backgroundColor: "#f1f1f1",
+              padding: "0.5rem",
+              borderRadius: "10px",
+              margin: "auto",
+              textAlign: "center",
+            }}
+          >
+            <h2 style={{ padding: "0.5rem", fontSize: "1.5rem" }}>
+              Outfits you wore:
+            </h2>
 
-        {fetchedOutfits.length > 0 && (
-          <div className={homeStyle.outfit_container}>
-            {fetchedOutfits.map((item) => (
-              <Link to={`/view/${item._id}`} key={item._id}>
-                <Outfit
-                  image_url={item.image_url}
-                  outfit_name={item.label}
-                  last_worn={item.last_worn}
-                />
-              </Link>
-            ))}
+            {fetchedOutfits.length > 0 && (
+              <div className={homeStyle.outfit_container}>
+                {fetchedOutfits.map((item) => (
+                  <Link to={`/view/${item._id}`} key={item._id}>
+                    <Outfit
+                      image_url={item.image_url}
+                      outfit_name={item.label}
+                      last_worn={item.last_worn}
+                    />
+                  </Link>
+                ))}
+              </div>
+            )}
+            {fetchedOutfits.length === 0 && (
+              <p style={{ fontSize: "1.5rem", textAlign: "center" }}>
+                No outfits wore on this day
+              </p>
+            )}
           </div>
-        )}
-        {fetchedOutfits.length === 0 && (
-          <p style={{ fontSize: "1.5rem", textAlign: "center" }}>
-            No outfits wore on this day
-          </p>
         )}
       </div>
     </Layout>
