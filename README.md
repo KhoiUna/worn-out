@@ -6,10 +6,10 @@ Goals, Issues, and information on our process can be found in our GIST as well a
 
 ## Dive into the details behind its development.
 
-* Checkout Our [Progress Board](https://github.com/users/FlameRender/projects/1) 
-* Checkout Our [User Story and Development Details](https://gist.github.com/FlameRender/bea3fca3546f3b9422d55f65feda8669#feature-goals)
-* Checkout Our [SCRUM Notes](https://github.com/FlameRender/worn-out/wiki)
-* Checkout Our [Issues](https://github.com/FlameRender/worn-out/issues)
+* Check out Our [Progress Board](https://github.com/users/FlameRender/projects/1) 
+* Check out Our [User Story and Development Details](https://gist.github.com/FlameRender/bea3fca3546f3b9422d55f65feda8669#feature-goals)
+* Check out Our [SCRUM Notes](https://github.com/FlameRender/worn-out/wiki)
+* Check out Our [Issues](https://github.com/FlameRender/worn-out/issues)
 
 ## Description use case
 The time has come to go to another business meeting where you have to give a presentation. You look in the closet and wonder what you wore
@@ -30,5 +30,9 @@ You show up to functions in new attire. Friends and colleagues are always seeing
 seem to wear the same thing twice. Then you refer them to Worn-Out APP. You explain how you can keep track of all the suits you have worn 
 to all the functions you're required to attend with ease now.
 
+
+## Similar Apps 
+
+![image](https://cdn.shortpixel.ai/spai/w_163+q_lossy+ret_img+to_webp/https://thetechfashionista.com/wp-content/uploads/2021/08/outfit-planning-app-10.jpg)
 
 
