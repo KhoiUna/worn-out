@@ -33,10 +33,10 @@ to all the functions you're required to attend with ease now.
 
 ## Similar Apps to Worn Out
 
-### Save Your Wardrobe
+### Save Your Wardrobe for iOS, Android
 ![image](https://cdn.shortpixel.ai/spai/w_163+q_lossy+ret_img+to_webp/https://thetechfashionista.com/wp-content/uploads/2021/08/outfit-planning-app-10.jpg)![image](https://cdn.shortpixel.ai/spai/w_163+q_lossy+ret_img+to_webp/https://thetechfashionista.com/wp-content/uploads/2021/08/outfit-planning-app-11.jpg)![image](https://cdn.shortpixel.ai/spai/w_163+q_lossy+ret_img+to_webp/https://thetechfashionista.com/wp-content/uploads/2021/08/outfit-planning-app-12.jpg) 
 
-### Closetspace
+### Closetspace for iOS, Android
 <img src="https://cdn.shortpixel.ai/spai/w_163+q_lossy+ret_img+to_webp/https://thetechfashionista.com/wp-content/uploads/2021/08/outfit-planning-app-28.jpg" alt="closetspace" width="16%" height="16%"/><img src="https://cdn.shortpixel.ai/spai/w_163+q_lossy+ret_img+to_webp/https://thetechfashionista.com/wp-content/uploads/2021/08/outfit-planning-app-29.jpg" alt="closetspace2" width="16%" height="16%" /><img src="https://cdn.shortpixel.ai/spai/w_163+q_lossy+ret_img+to_webp/https://thetechfashionista.com/wp-content/uploads/2021/08/outfit-planning-app-30.jpg" alt="closetspace3" width="16%" height="16%" />
 
 
