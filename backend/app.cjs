@@ -52,8 +52,8 @@ app.post("/api/outfit/save", async (req, res) => {
   });
 });
 
-app.post("/api/outfit/delete/:outfitID", async (req, res) => {
-  const response = await OutfitUtil.deleteUser(req.params.outfitID);
+app.delete("/api/outfit/delete/:outfitID", async (req, res) => {
+  const response = await OutfitUtil.deleteOutfit(req.params.outfitID);
 
   if (!response) console.error(response);
 

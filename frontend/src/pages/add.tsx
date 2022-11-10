@@ -18,6 +18,13 @@ type OutfitInput = {
   details: string;
 };
 
+type OutfitData = {
+  image_url: string;
+  label: string;
+  last_worn: string;
+  details: string;
+};
+
 const outfitInputInitialState: OutfitInput = {
   image_url: "",
   label: "",
@@ -25,8 +32,8 @@ const outfitInputInitialState: OutfitInput = {
   details: "",
 };
 
-const saveOutfit = async (outfitInput: OutfitInput) => {
-  const { data } = await axios.post("/api/outfit/save", outfitInput);
+const saveOutfit = async (outfitData: OutfitData) => {
+  const { data } = await axios.post("/api/outfit/save", outfitData);
   return data;
 };
 
@@ -70,7 +77,7 @@ const Add = () => {
 
   const handleSubmit = async (event: SyntheticEvent) => {
     event.preventDefault();
-    mutate(outfitInput);
+    mutate({ ...outfitInput, last_worn: outfitInput.last_worn.toUTCString() });
   };
 
   return (

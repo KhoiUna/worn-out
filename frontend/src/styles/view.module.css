@@ -7,6 +7,23 @@
   font-size: large;
 }
 
+.delete_button,
+.update_button {
+  padding: 5px;
+  color: black;
+  border-radius: 5px;
+  margin: 0.5rem;
+  font-size: large;
+  cursor: pointer;
+  border: 2px solid black;
+}
+.delete_button {
+  background-color: red;
+}
+.update_button {
+  background-color: yellow;
+}
+
 .back_button {
   background-color: white;
   padding: 5px;

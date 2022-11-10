@@ -1,8 +1,9 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Layout from "../containers/Layout";
 import viewStyle from "../styles/view.module.css";
+import toast, { Toaster } from "react-hot-toast";
 
 type Outfit = {
   _id: string;
@@ -12,7 +13,13 @@ type Outfit = {
   image_url: string;
 };
 
+const deleteOutfit = async (outfitID: string) => {
+  const { data } = await axios.delete(`/api/outfit/delete/${outfitID}`);
+  return data;
+};
+
 const View = () => {
+  const navigate = useNavigate();
   const { outfitID } = useParams();
 
   const { isLoading, data } = useQuery<any, any, Outfit, any>({
@@ -20,6 +27,26 @@ const View = () => {
     queryFn: () =>
       axios.get(`/api/outfit/${outfitID}`).then((res) => res.data.success),
   });
+
+  const { mutate, isLoading: deleteIsLoading } = useMutation(deleteOutfit, {
+    onSuccess: (data) => {
+      if (data.success) {
+        navigate("/");
+      }
+
+      if (data.error) {
+        toast.error("Error deleting outfit!");
+      }
+    },
+    onError: () => {
+      toast.error("Error deleting outfit!");
+    },
+  });
+
+  const handleDelete = () => {
+    if (confirm("Are you sure you want to delete this outfit?"))
+      mutate(outfitID as string);
+  };
 
   if (isLoading || !data)
     return (
@@ -36,7 +63,35 @@ const View = () => {
 
   return (
     <Layout>
+      <Toaster
+        toastOptions={{
+          success: {
+            style: {
+              background: "green",
+              fontWeight: "bold",
+              fontSize: "large",
+              color: "white",
+            },
+          },
+          error: {
+            style: {
+              background: "red",
+              fontWeight: "bold",
+              fontSize: "large",
+              color: "white",
+            },
+          },
+        }}
+      />
+
       <div className={viewStyle.container}>
+        <div style={{ textAlign: "right", margin: "0.5rem" }}>
+          <button onClick={handleDelete} className={viewStyle.delete_button}>
+            Delete
+          </button>
+          <button className={viewStyle.update_button}>Update</button>
+        </div>
+
         <h1 style={{ textDecoration: "underline" }}>{data.label}</h1>
 
         <div>
