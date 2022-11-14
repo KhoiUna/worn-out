@@ -3,27 +3,22 @@
   margin: 1rem;
 }
 
-.dropdown {
-  font-size: large;
-  padding: 5px;
-  border-radius: 10px;
-  margin: 0.5rem 0;
-  border: 2px solid black;
+.button_container {
+  margin: 1rem;
 }
 
-.add_outfit_button {
-  padding: 5px;
+.button {
+  padding: 10px;
   background-color: white;
   font-size: large;
   cursor: pointer;
   color: black;
   border-radius: 10px;
   border: 2px solid black;
+  width: 100%;
 }
-
-.outfit_container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+.button:hover {
+  background-color: #d590db;
+  text-decoration: 2px underline black;
+  text-underline-offset: 0.3rem;
 }
