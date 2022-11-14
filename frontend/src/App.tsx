@@ -3,11 +3,16 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Index from "./pages";
 import View from "./pages/[id]";
 import Add from "./pages/add";
+import MyOutfits from "./pages/my-outfits";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Index />,
+  },
+  {
+    path: "/my-outfits",
+    element: <MyOutfits />,
   },
   {
     path: "/add",
