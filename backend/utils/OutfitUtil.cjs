@@ -109,12 +109,23 @@ module.exports = class OutfitUtil {
     try {
       const collection = client.db("wornout").collection("outfits");
 
+      // Format date for last_worn
+      outfitData.last_worn = new Date(outfitData.last_worn.trim());
+      outfitData.last_worn = new Date(
+        outfitData.last_worn.getFullYear(),
+        outfitData.last_worn.getMonth(),
+        outfitData.last_worn.getDate(),
+        6,
+        0,
+        0
+      );
+
       const filter = { _id: ObjectId(outfitId) };
 
       const updateDoc = {
         $set: {
           label: outfitData.label,
-          details: outfitData.details,
+          details: outfitData.details.split(","), // split details string to create an array in Mongo
           last_worn: outfitData.last_worn,
         },
       };
