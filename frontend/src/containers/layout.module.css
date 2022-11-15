@@ -10,3 +10,10 @@
   color: rgb(126, 236, 222);
   text-shadow: 2px 2px 1px #000000;
 }
+
+.footer_span {
+  font-family: "Break";
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: underline;
+}

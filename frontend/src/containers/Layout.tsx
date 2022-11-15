@@ -20,6 +20,16 @@ const Layout = ({ children }: { children: ReactElement | ReactElement[] }) => {
       </Link>
 
       {children}
+
+      <footer style={{ margin: "1.5rem 0", textAlign: "center" }}>
+        <a
+          href="https://github.com/FlameRender/worn-out"
+          target={"_blank"}
+          rel="noopener noreferrer"
+        >
+          <span className={layoutStyle.footer_span}>Source code</span>
+        </a>
+      </footer>
     </div>
   );
 };
