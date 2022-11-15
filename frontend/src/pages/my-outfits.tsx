@@ -99,7 +99,7 @@ const MyOutfits = () => {
           <div
             style={{
               backgroundColor: "#f1f1f1",
-              padding: "0.5rem",
+              padding: "1rem",
               borderRadius: "10px",
               margin: "auto",
               textAlign: "center",

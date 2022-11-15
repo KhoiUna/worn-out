@@ -11,16 +11,6 @@
   border: 2px solid black;
 }
 
-.add_outfit_button {
-  padding: 5px;
-  background-color: white;
-  font-size: large;
-  cursor: pointer;
-  color: black;
-  border-radius: 10px;
-  border: 2px solid black;
-}
-
 .outfit_container {
   display: flex;
   flex-wrap: wrap;
