@@ -109,12 +109,10 @@ module.exports = class OutfitUtil {
     try {
       const collection = client.db("wornout").collection("outfits");
 
-      const filter = { _id: ObjectId(outfitId) }; // pass in outfitId
+      const filter = { _id: ObjectId(outfitId) };
 
-      // update the key 'label' with the new name from userData
       const updateDoc = {
         $set: {
-          image_url: outfitData.image_url,
           label: outfitData.label,
           details: outfitData.details,
           last_worn: outfitData.last_worn,
