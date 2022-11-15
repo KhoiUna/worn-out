@@ -6,7 +6,17 @@ const Layout = ({ children }: { children: ReactElement | ReactElement[] }) => {
   return (
     <div className={layoutStyle.container}>
       <Link to={"/"}>
-        <h1 className={layoutStyle.title}>Worn Out</h1>
+        <div style={{ marginBottom: "3rem" }}>
+          <h1 className={layoutStyle.title}>Worn Out</h1>
+          <h2
+            style={{
+              color: "white",
+              textAlign: "right",
+            }}
+          >
+            Never feel worn out again
+          </h2>
+        </div>
       </Link>
 
       {children}
