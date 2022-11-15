@@ -34,3 +34,11 @@
   cursor: pointer;
   border: 2px solid black;
 }
+.back_button:hover {
+  background-color: #d590db;
+}
+
+.delete_button:hover,
+.update_button:hover {
+  box-shadow: 0 -4px 28px -5px #8a2379;
+}
