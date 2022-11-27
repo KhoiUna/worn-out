@@ -63,7 +63,7 @@ app.delete("/api/outfit/delete/:outfitID", async (req, res) => {
   });
 });
 
-app.post("/api/outfit/update/:outfitID", async (req, res) => {
+app.put("/api/outfit/update/:outfitID", async (req, res) => {
   const response = await OutfitUtil.updateOne(req.params.outfitID, req.body);
 
   if (!response) console.error(response);
@@ -78,6 +78,4 @@ app.post("/api/outfit/update/:outfitID", async (req, res) => {
 app.use("*", express.static(path.join(__dirname, "..", "frontend/dist")));
 
 // Express listening
-app.listen(PORT, () =>
-  console.log(`Server is running: http://localhost:${PORT}/`)
-);
+app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
