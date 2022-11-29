@@ -46,3 +46,4 @@ to all the functions you're required to attend with ease now.
 Click the railway link below and paste the URL with a date, description, and label.
 * [Worn Out](https://wornout.up.railway.app/)
 * https://www.themodestman.com/wp-content/uploads/2022/06/Best-casual-summer-outfit-ideas-for-men.jpg
+* https://image.josbank.com/is/image/JosBank/37K8_75_EXECUTIVE_NAVY_MAIN?$JABPDPSharpen$&hei=1080&wid=800&align=0,-1
