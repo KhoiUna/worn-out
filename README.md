@@ -43,7 +43,6 @@ to all the functions you're required to attend with ease now.
 <img src="https://cdn.shortpixel.ai/spai/w_163+q_lossy+ret_img+to_webp/https://thetechfashionista.com/wp-content/uploads/2021/08/outfit-planning-app-28.jpg" alt="closetspace" width="16%" height="16%"/><img src="https://cdn.shortpixel.ai/spai/w_163+q_lossy+ret_img+to_webp/https://thetechfashionista.com/wp-content/uploads/2021/08/outfit-planning-app-29.jpg" alt="closetspace2" width="16%" height="16%" /><img src="https://cdn.shortpixel.ai/spai/w_163+q_lossy+ret_img+to_webp/https://thetechfashionista.com/wp-content/uploads/2021/08/outfit-planning-app-30.jpg" alt="closetspace3" width="16%" height="16%" />
 
 ## Try It YourSelf!
-Click the railway link below and paste the URL with a date, description, and label.
-* [Worn Out](https://wornout.up.railway.app/)
+Click the Worn Out link [here](https://wornout.up.railway.app/) and paste the URL with a date, description, and label.
 * https://www.themodestman.com/wp-content/uploads/2022/06/Best-casual-summer-outfit-ideas-for-men.jpg
 * https://image.josbank.com/is/image/JosBank/37K8_75_EXECUTIVE_NAVY_MAIN?$JABPDPSharpen$&hei=1080&wid=800&align=0,-1
