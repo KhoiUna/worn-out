@@ -1,5 +1,4 @@
 .container {
-  background: linear-gradient(0.25turn, #7a47b9, #6438ca, #3b2db8);
   min-height: 100vh;
   padding: 1rem;
 }
@@ -10,4 +9,11 @@
   font-size: 4rem;
   color: rgb(126, 236, 222);
   text-shadow: 2px 2px 1px #000000;
+}
+
+.footer_span {
+  font-family: "Break";
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: underline;
 }
